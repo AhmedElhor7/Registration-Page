@@ -92,6 +92,14 @@ signButton.addEventListener("click", function () {
   let isPasswordValid = validationInputRegex(inputForPasswordSign);
   let isPasswordMatch = passwordSign === passwordSignAgain;
 
+  if (!isPasswordMatch) {
+    // If passwords don't match, show validation message for password confirmation
+    document.getElementById("messagePasswordAgainValid").classList.remove("d-none");
+  } else {
+    // If passwords match, hide validation message for password confirmation
+    document.getElementById("messagePasswordAgainValid").classList.add("d-none");
+  }
+
   if (isNameValid && isEmailValid && isPasswordValid && isPasswordMatch) {
     nameArray.push(nameSign);
     emailArray.push(emailSign);
@@ -109,6 +117,7 @@ signButton.addEventListener("click", function () {
     console.error("Please enter all data and ensure passwords match");
   }
 });
+
 
 // Switch to login system
 btnLogin.addEventListener("click", function () {
@@ -180,5 +189,10 @@ loginButton.addEventListener("click", function () {
 
   if (!isAuthenticated) {
     console.log("Have Problem At Email Or Password");
+    document.getElementById("messageValid").classList.remove("d-none");
+  } else {
+    // If passwords match, hide validation message for password confirmation
+    document.getElementById("messageValid").classList.add("d-none");
   }
-});
+  }
+);
