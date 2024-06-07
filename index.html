@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <section class="d-none" id="loginSystem">
+      <div class="container">
+        <div class="row d-flex justify-content-center align-items-center pt-5">
+          <div class="col-md-6 col-xl-4">
+            <div class="all-content p-5 shadow">
+              <div class="title-content">
+                <h2>Login</h2>
+                <p>Join To Amazing World</p>
+              </div>
+              <div class="input-content">
+                <div class="form-floating mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="inputForEmailLogin"
+                    placeholder="name@example.com"
+                  />
+                  <label for="inputForEmailLogin">Email address</label>
+                </div>
+                <div class="form-floating">
+                  <input
+                    type="password"
+                    class="form-control position-relative"
+                    id="inputForPasswordLogin"
+                    placeholder="Password"
+                  />
+                  <span class="position-absolute end-0 pe-2">
+                    <button class="custom-button text-primary" id="showPassword">
+                      Show
+                    </button></span
+                  >
+                  <label for="inputForPasswordLogin">Password</label>
+                </div>
+              </div>
+              <div class="login-content pt-3">
+                <div class="d-grid gap-2 col-8 mx-auto">
+                  <button
+                    class="btn btn-primary rounded-5"
+                    type="button"
+                    id="loginButton"
+                  >
+                    Login
+                  </button>
+                </div>
+                <footer>
+                  <div class="footer-content text-center pt-4">
+                    <p>
+                      Don’t have an account?<button id="btnSign" class="custom-button">Sign Up</button>
+                    </p>
+                  </div>
+                </footer>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+        <section  id="signupSystem">
+    <div class="container">
+      <div class="row d-flex justify-content-center align-items-center pt-5">
+        <div class="col-md-6 col-xl-4">
+          <div class="all-content p-5 shadow">
+            <div class="title-content">
+              <h2>Sign up</h2>
+              <p>Join To Amazing World</p>
+            </div>
+            <div class="input-content">
+                <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputForNameSign"
+                  placeholder="name@example.com"
+                  onfocusout="validationInputRegex(this)"
+                />
+                <label for="inputForNameSign">Enter Your Name</label>
+                <span class="py-1 text-danger d-none" id="messageNameValid">Please Write Vaild Name At Least One Char And Max 15 Char</span>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="inputForEmailSign"
+                  placeholder="name@example.com"
+                  onfocusout="validationInputRegex(this)"
+                />
+                <label for="inputForEmailSign">Enter Your Email address</label>
+                <span class="py-1 text-danger d-none" id="messageEmailValid">Please Write Vaild Email Like name@example.com</span>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="inputForPasswordSign"
+                  placeholder="Password"
+                  onfocusout="validationInputRegex(this)"
+                />
+                <label for="inputForPasswordSign">Enter Your Password</label>
+                <span class="py-1 text-danger d-none" id="messagePasswordValid">Please Write Vaild Password at least 6 characters with a mix of letters, numbers, and special characters. </span>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="inputForPasswordSignAgain"
+                  placeholder="Password Agin"
+                  onfocusout="validationInputRegex(this)"
+                />
+                <label for="inputForPasswordSignAgain">Enter Your Password Agin</label>
+                <span class="py-1 text-danger d-none" id="messagePasswordAginValid">Password Not Matched</span>
+              </div>
+            </div>
+            <div class="login-content pt-3">
+              <div class="d-grid gap-2 col-8 mx-auto">
+                <button class="btn btn-primary rounded-5" type="button" id="signButton">
+                  Suig up
+                </button>
+              </div>
+              <footer>
+                <div class="footer-content text-center pt-4">
+                  <p>You have an account?<button id="btnLogin" class="custom-button">Login</button></p>
+                </div>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <section class="d-none" id="home"> 
+        <h1 id="welcome"></h1>
+    </section>
+        <!-- Modal -->
+    <div
+      class="modal fade"
+      id="modalValdtion"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Complete Data
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="warringMaseege"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
