@@ -186,7 +186,6 @@ loginButton.addEventListener("click", function () {
       break; // Exit the loop once a match is found
     }
   }
-
   if (!isAuthenticated) {
     console.log("Have Problem At Email Or Password");
     document.getElementById("messageValid").classList.remove("d-none");
